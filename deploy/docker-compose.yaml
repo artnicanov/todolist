@@ -26,6 +26,8 @@ services:
         condition: service_healthy
     volumes:
       - django_static:/opt/static
+    command: python manage.py runserver 0.0.0.0:8000
+
 
   frontend:
     image: sermalenk/skypro-front:lesson-34
