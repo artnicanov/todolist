@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-      - hw_35
+      - hw_36
 
 jobs:
   build:

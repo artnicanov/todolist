@@ -6,18 +6,13 @@ RUN pip install "poetry==$POETRY_VERSION"
 
 WORKDIR /opt
 
-#COPY poetry.lock pyproject.toml ./
-#
-#RUN poetry config virtualenvs.create false \
-#    && poetry install --no-root
-
 COPY requirements.txt .
 
 RUN pip install -r requirements.txt
 
 COPY . .
 
-ENTRYPOINT ["bash", "entrypoint.sh"]
+#ENTRYPOINT ["bash", "entrypoint.sh"]
 
 EXPOSE 8080
 

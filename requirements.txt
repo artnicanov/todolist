@@ -12,6 +12,7 @@ cryptography==41.0.0
 defusedxml==0.7.1
 distlib==0.3.6
 Django==4.2.1
+django-filter==23.2
 djangorestframework==3.14.0
 dulwich==0.21.5
 envparse==0.2.0
