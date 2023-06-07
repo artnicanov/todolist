@@ -4,7 +4,7 @@ on:
   push:
     branches-ignore:
       - main
-      - hw_36
+      - hw_37/38
 
 jobs:
   build:
