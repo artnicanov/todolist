@@ -30,7 +30,7 @@ services:
 
 
   frontend:
-    image: sermalenk/skypro-front:lesson-37
+    image: sermalenk/skypro-front:lesson-38
     ports:
       - "80:80"
     depends_on:
@@ -39,6 +39,15 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf
       - django_static:/usr/share/nginx/html/static
+
+  bot:
+    image: artnicanov/todolist:latest
+    restart: always
+    env_file: .env
+    depends_on:
+      frontend:
+        condition: service_started
+    command: python manage.py runbot
 
 volumes:
   pg_coursework_7_data:
