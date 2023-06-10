@@ -19,17 +19,15 @@ def board_create_data(faker) -> Callable:
 @pytest.mark.django_db()
 class TestBoardCreateView:
     url = reverse('goals:board-create')
-    # получить по команде python .\manage.py show_urls
-    # перепроверить в python .\manage.py shell_plus запустив reverse('goals:board-create')
 
     def test_auth_required(self, client, board_create_data):
-        """Неавторизованный пользователь при создании доски получит ошибку авторизации."""
+        """ошибка если пользователь неавторизован"""
 
         response = client.post(self.url, data=board_create_data())
         assert response.status_code == status.HTTP_403_FORBIDDEN
 
     def test_failed_to_create_deleted_board(self, auth_client, board_create_data):
-        """Нельзя создавать доску со значением is_deleted=True."""
+        """доску не может быть удаленной при создании"""
 
         response = auth_client.post(self.url, data=board_create_data(is_deleted=True))
 
