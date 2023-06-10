@@ -19,7 +19,7 @@ class TestCategoryCreateView:
     url = reverse('goals:category-create')
 
     def test_auth_required(self, client, category_create_data):
-        """Неавторизованный пользователь при создании категории получит ошибку авторизации."""
+        """ошибка если пользователь неавторизован"""
         response = client.post(self.url, data=category_create_data())
 
         assert response.status_code == status.HTTP_403_FORBIDDEN

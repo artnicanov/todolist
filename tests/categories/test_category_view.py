@@ -16,7 +16,7 @@ class TestCategoryRetrieveView:
         return reverse('goals:category', kwargs={'pk': category_pk})
 
     def test_auth_required(self, client):
-        """Неавторизованный пользователь не может просматривать категории на доске."""
+        """ошибка если пользователь неавторизован"""
         response = client.get(self.url)
         assert response.status_code == status.HTTP_403_FORBIDDEN
 

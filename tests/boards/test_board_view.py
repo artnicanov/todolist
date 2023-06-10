@@ -84,7 +84,7 @@ class TestBoardDestroyView:
         ids=['writer', 'reader'],
     )
     def test_not_owner_failed_to_delete_board(self, client, user_factory, board, board_participant_factory, role):
-        """Пользователь не являющийся владельцем доски, не может её удалить."""
+        """Пользователь не являющийся владельцем доски не может её удалить."""
         another_user = user_factory.create()
         board_participant_factory.create(user=another_user, board=board, role=role)
         client.force_login(another_user)
